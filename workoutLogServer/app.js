@@ -27,20 +27,17 @@ app.listen(3000, function(){
 	console.log("app is open on 3000");
 })
 
-
-
-
 	var User = sequelize.define('user', {
 		username: Sequelize.STRING,
-		passwordhash: Sequelize.STRING,
+		passwordhash: Sequelize.STRING
 	});
 
 // Creates the table in postgres
 // Matches the defined model
 // Doesn't drop the db
 
-	User.sync();
-	// User.sync({force:true}); //This drops the table
+	// User.sync();
+	User.sync({force:true}); //This drops the table
 
 	app.use(bodyParser.json());
 
